@@ -71,6 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 if (!emailValid) {
                                   return 'invalid email';
                                 }
+                                return null ;
                               },
                             ),
                             TextFieldItem(
@@ -85,6 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     value.trim()!.length > 30) {
                                   return 'password should be >6 & <30';
                                 }
+                                return null ;
                               },
                               isObsecure: isObsecure,
                               suffixIcon: InkWell(
