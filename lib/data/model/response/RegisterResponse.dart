@@ -1,6 +1,7 @@
 import 'package:flutter_app_e_commerece_c9_sun/data/model/response/Error.dart';
+import 'package:flutter_app_e_commerece_c9_sun/domain/entities/AuthResultEntity.dart';
 
-import 'User.dart';
+import 'UserDto.dart';
 
 /// message : "success"
 /// user : {"name":"Ahmed Abd Al-Muti","email":"test200000@gmail.com","role":"user"}
@@ -17,12 +18,12 @@ class RegisterResponse {
   RegisterResponse.fromJson(dynamic json) {
     message = json['message'];
     statusMsg = json['statusMsg'];
-    error = json['errors'];
-    user = json['user'] != null ? User.fromJson(json['user']) : null;
+    error = json['errors'] != null ? Error.fromJson(json['errors']) : null;
+    user = json['user'] != null ? UserDto.fromJson(json['user']) : null;
     token = json['token'];
   }
   String? message;
-  User? user;
+  UserDto? user;
   String? token;
   Error? error ;
   String? statusMsg;
@@ -37,6 +38,12 @@ class RegisterResponse {
     }
     map['token'] = token;
     return map;
+  }
+  AuthResultEntity toAuthResultEntity(){
+    return AuthResultEntity(
+      token: token,
+      userEntity: user?.toUserEntity()
+    );
   }
 
 }

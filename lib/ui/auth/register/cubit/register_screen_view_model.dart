@@ -8,31 +8,31 @@ class RegisterScreenViewModel extends Cubit<RegisterStates> {
   RegisterScreenViewModel({required this.registerUseCase}) : super(RegisterInitialState());
   // hold data - handle logic
   var formKey = GlobalKey<FormState>();
-  var nameController = TextEditingController();
-  var passwordController = TextEditingController();
-  var confirmationPasswordController = TextEditingController();
-  var emailController = TextEditingController();
-  var phoneController = TextEditingController();
+  var nameController = TextEditingController(text: 'adham');
+  var passwordController = TextEditingController(text: '123456');
+  var confirmationPasswordController = TextEditingController(text: '123456');
+  var emailController = TextEditingController(text: 'adham15@route.com');
+  var phoneController = TextEditingController(text: '01023232321');
   bool isObsecure = true;
 
   void register() async {
     if (formKey.currentState!.validate()) {
       emit(RegisterLoadingState(loadingMessage: 'Loading...'));
-      try {
-        var response = await registerUseCase.invoke(
+        var either = await registerUseCase.invoke(
             nameController.text,
             emailController.text,
             passwordController.text,
             confirmationPasswordController.text,
             phoneController.text);
-        if (response.message != 'success') {
-          emit(RegisterErrorState(errorMessage: response.message!));
-        } else {
-          emit(RegisterSuccuessState(response: response));
-        }
-      } catch (e) {
-        emit(RegisterErrorState(errorMessage: e.toString()));
-      }
+       either.fold((l) {
+         emit(RegisterErrorState(errorMessage: l.errorMessage));
+         print(l.errorMessage);
+       },
+               (response){
+         emit(RegisterSuccuessState(response: response));
+         print(response.token);
+               });
     }
+
   }
 }

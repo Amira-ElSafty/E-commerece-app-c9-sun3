@@ -32,7 +32,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           );
         }else if(state is RegisterSuccuessState){
           DialogUtils.hideLoading(context);
-          DialogUtils.showMessage(context, state.response.user?.name??"",
+          DialogUtils.showMessage(context, state.response.token??"",
             posActionName: 'Ok',
             title: 'Succuess',
           );
@@ -106,7 +106,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   return null ;
                                 },
                                 keyboardType: TextInputType.visiblePassword,
-                                isObsecure: viewModel.isObsecure,
+                                isObscure: viewModel.isObsecure,
                                 suffixIcon: InkWell(
                                   child: viewModel.isObsecure
                                       ? Icon(Icons.visibility_off)
@@ -135,7 +135,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   return null ;
                                 },
                                 keyboardType: TextInputType.visiblePassword,
-                                isObsecure: viewModel.isObsecure,
+                                isObscure: viewModel.isObsecure,
                                 suffixIcon: InkWell(
                                   child: viewModel.isObsecure
                                       ? Icon(Icons.visibility_off)

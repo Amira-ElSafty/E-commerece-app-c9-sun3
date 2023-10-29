@@ -1,28 +1,32 @@
+import 'package:flutter_app_e_commerece_c9_sun/domain/entities/UserEntity.dart';
+
 /// name : "Ahmed Abd Al-Muti"
 /// email : "test200000@gmail.com"
 /// role : "user"
 
-class User {
-  User({
+class UserDto {
+  UserDto({
       this.name, 
       this.email, 
-      this.role,});
+  });
 
-  User.fromJson(dynamic json) {
+  UserDto.fromJson(dynamic json) {
     name = json['name'];
     email = json['email'];
-    role = json['role'];
   }
   String? name;
   String? email;
-  String? role;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['name'] = name;
     map['email'] = email;
-    map['role'] = role;
     return map;
   }
-
+ UserEntity toUserEntity(){
+    return UserEntity(
+      email: email,
+      name: name
+    );
+ }
 }
