@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_e_commerece_c9_sun/utils/my_colors.dart';
+import 'package:flutter_app_e_commerece_c9_sun/ui/utils/my_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextFieldItem extends StatelessWidget {
   String fieldName;
   String hintText;
   Widget? suffixIcon;
-  bool isObsecure;
+  bool isObscure;
   var keyboardType;
   String? Function(String?)? validator;
-  TextEditingController controller ;
+  TextEditingController controller;
+
   TextFieldItem(
       {required this.fieldName,
       required this.hintText,
       this.suffixIcon,
-      this.isObsecure = false,
+      this.isObscure = false,
       this.validator,
       required this.controller,
       this.keyboardType = TextInputType.text});
@@ -53,7 +54,7 @@ class TextFieldItem extends StatelessWidget {
             style: TextStyle(color: AppColors.blackColor),
             validator: validator,
             controller: controller,
-            obscureText: isObsecure,
+            obscureText: isObscure,
             keyboardType: keyboardType,
           ),
         )

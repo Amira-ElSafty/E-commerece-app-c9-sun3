@@ -1,6 +1,7 @@
 class MyAssets {
   // Selected Icons
   static const String selectedHomeIcon = "assets/icons/home_icon_selected.png";
+  static const editIcon = "assets/icons/edit.png";
   static const String selectedCategoryIcon =
       "assets/icons/category_icon_selected.png";
   static const String selectedWishlistIcon =
@@ -28,20 +29,20 @@ class MyAssets {
   static const shoppingCart = "assets/icons/shopping_cart.png";
 
   // Announcements Images
-  static const announcement1 = "assets/images/announcements/banner-1.png";
-  static const announcement2 = "assets/images/announcements/banner-2.png";
-  static const announcement3 = "assets/images/announcements/banner-3.png";
+  static const announcement1 = "assets/images/banner-1.png";
+  static const announcement2 = "assets/images/banner-2.png";
+  static const announcement3 = "assets/images/banner-3.png";
 
   // Categories
-  static const beautyCategory = "assets/images/categories/beauty.png";
-  static const menCategory = "assets/images/categories/men.png";
-  static const womenCategory = "assets/images/categories/women.png";
-  static const skinCareCategory = "assets/images/categories/skincare.png";
-  static const headphoneCategory = "assets/images/categories/headphone.png";
-  static const electronicsCategory = "assets/images/categories/electronics.png";
+  static const beautyCategory = "assets/images/beauty.png";
+  static const menCategory = "assets/images/men.png";
+  static const womenCategory = "assets/images/women.png";
+  static const skinCareCategory = "assets/images/skincare.png";
+  static const headphoneCategory = "assets/images/headphone.png";
+  static const electronicsCategory = "assets/images/electronics.png";
   // Item
-  static const itemImage = "assets/images/items/wash_machine.png";
-  static const shoesItemImage1 = "assets/images/items/shoes-1.png";
-  static const shoesItemImage2 = "assets/images/items/shoes-2.png";
-  static const shoesItemImage3 = "assets/images/items/shoes-3.png";
+  static const itemImage = "assets/images/wash_machine.png";
+  static const shoesItemImage1 = "assets/images/shoes-1.png";
+  static const shoesItemImage2 = "assets/images/shoes-2.png";
+  static const shoesItemImage3 = "assets/images/shoes-3.png";
 }

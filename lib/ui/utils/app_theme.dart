@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_e_commerece_c9_sun/utils/my_colors.dart';
-
+import 'package:flutter_app_e_commerece_c9_sun/ui/utils/my_colors.dart';
 class AppTheme {
   static ThemeData mainTheme = ThemeData(
       primaryColor: AppColors.primaryColor,
