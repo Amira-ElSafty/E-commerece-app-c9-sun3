@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_e_commerece_c9_sun/domain/useCase/login_use_case.dart';
+import 'package:flutter_app_e_commerece_c9_sun/domain/di.dart';
 import 'package:flutter_app_e_commerece_c9_sun/ui/auth/login/cubit/login_screen_view_model.dart';
 import 'package:flutter_app_e_commerece_c9_sun/ui/auth/login/cubit/login_states.dart';
 import 'package:flutter_app_e_commerece_c9_sun/ui/auth/register/register_screen.dart';
-import 'package:flutter_app_e_commerece_c9_sun/utils/dialog_utils.dart';
-import 'package:flutter_app_e_commerece_c9_sun/utils/my_colors.dart';
-import 'package:flutter_app_e_commerece_c9_sun/utils/text_field_item.dart';
+import 'package:flutter_app_e_commerece_c9_sun/ui/home/home_screen/home_screen_view.dart';
+import 'package:flutter_app_e_commerece_c9_sun/ui/utils/dialog_utils.dart';
+import 'package:flutter_app_e_commerece_c9_sun/ui/utils/my_colors.dart';
+import 'package:flutter_app_e_commerece_c9_sun/ui/utils/shared_preference_utils.dart';
+import 'package:flutter_app_e_commerece_c9_sun/ui/utils/text_field_item.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -35,6 +37,9 @@ class _LoginScreenState extends State<LoginScreen> {
           DialogUtils.showMessage(context, state.response.token!,posActionName: 'Ok',
             title: 'Succuess',
           );
+          /// save token
+          SharedPreferenceUtils.saveData(key: 'Token',value: state.response.token);
+          Navigator.of(context).pushNamed(HomeScreenView.routeName);
         }
       },
       child: Scaffold(

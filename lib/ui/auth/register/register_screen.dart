@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_e_commerece_c9_sun/domain/useCase/register_use_case.dart';
+import 'package:flutter_app_e_commerece_c9_sun/domain/di.dart';
 import 'package:flutter_app_e_commerece_c9_sun/ui/auth/register/cubit/register_screen_view_model.dart';
 import 'package:flutter_app_e_commerece_c9_sun/ui/auth/register/cubit/states.dart';
-import 'package:flutter_app_e_commerece_c9_sun/utils/dialog_utils.dart';
-import 'package:flutter_app_e_commerece_c9_sun/utils/my_colors.dart';
-import 'package:flutter_app_e_commerece_c9_sun/utils/text_field_item.dart';
+import 'package:flutter_app_e_commerece_c9_sun/ui/utils/dialog_utils.dart';
+import 'package:flutter_app_e_commerece_c9_sun/ui/utils/my_colors.dart';
+import 'package:flutter_app_e_commerece_c9_sun/ui/utils/text_field_item.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -32,7 +32,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           );
         }else if(state is RegisterSuccuessState){
           DialogUtils.hideLoading(context);
-          DialogUtils.showMessage(context, state.response.token??"",
+          DialogUtils.showMessage(context, state.response.userEntity?.name??'',
             posActionName: 'Ok',
             title: 'Succuess',
           );
